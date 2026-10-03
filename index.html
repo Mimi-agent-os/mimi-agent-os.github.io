@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0c0c0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f3f5" media="(prefers-color-scheme: light)">
+<meta name="description" content="mimi-os lets you run your own AI agents on your own machines and talk to them from your desktop (macOS or Windows) and your Android phone. Each agent is a folder of code you own, and every tool it marks as a write waits for your Allow.">
+<title>mimi-os</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&text=mimi-os&display=swap">
+<link rel="stylesheet" href="landing.css">
+<script type="module" src="landing.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top wrap">
+    <a class="brand" href="./"><img src="assets/mimi-mascot.png" width="26" height="26" alt=""><span class="wm">mimi-os</span></a>
+    <nav class="top-links" aria-label="Site">
+        <a href="wiki/">Wiki</a>
+        <a href="https://github.com/Mimi-agent-os">GitHub</a>
+    </nav>
+</header>
+
+<main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+            <p class="ask">What is it?</p>
+            <h1 id="hero-title"><span>Your own AI agents,</span> <span><span class="nw">on your own</span> machines.</span></h1>
+            <p class="lede">mimi-os runs your agents on a machine at home, around the clock, and puts all of them in one app on your desktop and your phone.</p>
+            <div class="acts">
+                <a class="cta primary" href="wiki/#/launch">Get started</a>
+                <a class="cta" href="wiki/">Read the wiki</a>
+                <a class="quiet" href="https://github.com/Mimi-agent-os">GitHub</a>
+            </div>
+        </div>
+
+        <figure class="hero-demo">
+            <div class="app-demo ui" aria-hidden="true" data-demo>
+                <aside class="ad-side">
+                    <div class="ad-home-head">
+                        <span class="ad-brand">
+                            <img src="assets/mimi-mascot.png" width="22" height="22" alt="">
+                            <span class="wm">mimi-os</span>
+                            <svg class="i" viewBox="0 0 16 16"><path d="m6.2 3.8 4.2 4.2-4.2 4.2"/></svg>
+                        </span>
+                        <span class="ad-icon"><svg class="i sm" viewBox="0 0 16 16"><path d="M13 8H3.2M7.4 3.6 3 8l4.4 4.4"/></svg></span>
+                    </div>
+                    <div class="ad-jump">
+                        <svg class="i sm" viewBox="0 0 16 16"><circle cx="7.2" cy="7.2" r="4.4"/><path d="m10.6 10.6 2.9 2.9"/></svg>
+                        <span>Jump to…</span>
+                        <kbd>⌘K</kbd>
+                    </div>
+                    <div class="ad-agents">
+                        <div class="ad-agent">
+                            <div class="ad-agent-row">
+                                <span class="mark">W</span><span class="ad-agent-name">wren</span>
+                                <span class="ad-icon sm"><svg class="i sm" viewBox="0 0 16 16"><path d="M8 3.4v9.2M3.4 8h9.2"/></svg></span>
+                                <span class="ad-icon sm ad-fold"><svg class="i sm" viewBox="0 0 16 16"><path d="m6.2 3.8 4.2 4.2-4.2 4.2"/></svg></span>
+                            </div>
+                            <ul class="ad-chats">
+                                <li class="on"><span>Move the review</span><time>now</time></li>
+                                <li><span>Week of 5 October</span><time>08:50</time></li>
+                                <li><span>Swim on Saturday</span><time>Thu</time></li>
+                                <li class="ad-more">All 9 chats</li>
+                            </ul>
+                        </div>
+                        <div class="ad-agent">
+                            <div class="ad-agent-row">
+                                <span class="mark">L</span><span class="ad-agent-name">loom</span>
+                                <span class="ad-icon sm"><svg class="i sm" viewBox="0 0 16 16"><path d="M8 3.4v9.2M3.4 8h9.2"/></svg></span>
+                                <span class="ad-icon sm ad-fold"><svg class="i sm" viewBox="0 0 16 16"><path d="m6.2 3.8 4.2 4.2-4.2 4.2"/></svg></span>
+                            </div>
+                            <ul class="ad-chats">
+                                <li><span>Who has the car on Friday</span><time>Wed</time></li>
+                                <li><span>Plumber on Tuesday</span><time>Sun</time></li>
+                            </ul>
+                        </div>
+                        <div class="ad-agent">
+                            <div class="ad-agent-row">
+                                <span class="mark">S</span><span class="ad-agent-name">scout</span>
+                                <span class="ad-icon sm"><svg class="i sm" viewBox="0 0 16 16"><path d="M8 3.4v9.2M3.4 8h9.2"/></svg></span>
+                                <span class="ad-icon sm ad-fold"><svg class="i sm" viewBox="0 0 16 16"><path d="m6.2 3.8 4.2 4.2-4.2 4.2"/></svg></span>
+                            </div>
+                            <ul class="ad-chats">
+                                <li><span>The heat pump article</span><time>Sun</time></li>
+                                <li><span>Reading list for October</span><time>Fri</time></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ad-bar">
+                        <span class="ad-cell on"><svg class="i" viewBox="0 0 16 16"><path d="M2.6 7.6c0-2.76 2.42-5 5.4-5s5.4 2.24 5.4 5-2.42 5-5.4 5c-.65 0-1.28-.1-1.86-.3L3.1 13.4l1-2.3A4.85 4.85 0 0 1 2.6 7.6z"/></svg>Agents</span>
+                        <span class="ad-cell"><svg class="i" viewBox="0 0 16 16"><path d="M2.2 9.6h3l1 2h3.6l1-2h3M2.2 9.6 4 3.6a1.2 1.2 0 0 1 1.15-.85h5.7A1.2 1.2 0 0 1 12 3.6l1.8 6v2.4a1.2 1.2 0 0 1-1.2 1.2H3.4a1.2 1.2 0 0 1-1.2-1.2z"/></svg>Inbox</span>
+                        <span class="ad-cell"><svg class="i" viewBox="0 0 16 16"><path d="M2.5 4.8h11M2.5 11.2h11"/><circle cx="6" cy="4.8" r="1.7"/><circle cx="10.5" cy="11.2" r="1.7"/></svg>Settings</span>
+                    </div>
+                </aside>
+
+                <aside class="ad-rail">
+                    <span class="ad-rail-head"><img src="assets/mimi-mascot.png" width="22" height="22" alt=""></span>
+                    <span class="ad-icon"><svg class="i sm" viewBox="0 0 16 16"><circle cx="7.2" cy="7.2" r="4.4"/><path d="m10.6 10.6 2.9 2.9"/></svg></span>
+                    <span class="ad-rail-agent on"><span class="mark">W</span></span>
+                    <span class="ad-rail-agent"><span class="mark">L</span></span>
+                    <span class="ad-rail-agent"><span class="mark">S</span></span>
+                    <span class="ad-rail-bar">
+                        <span class="ad-rail-cell on"><svg class="i" viewBox="0 0 16 16"><path d="M2.6 7.6c0-2.76 2.42-5 5.4-5s5.4 2.24 5.4 5-2.42 5-5.4 5c-.65 0-1.28-.1-1.86-.3L3.1 13.4l1-2.3A4.85 4.85 0 0 1 2.6 7.6z"/></svg></span>
+                        <span class="ad-rail-cell"><svg class="i" viewBox="0 0 16 16"><path d="M2.2 9.6h3l1 2h3.6l1-2h3M2.2 9.6 4 3.6a1.2 1.2 0 0 1 1.15-.85h5.7A1.2 1.2 0 0 1 12 3.6l1.8 6v2.4a1.2 1.2 0 0 1-1.2 1.2H3.4a1.2 1.2 0 0 1-1.2-1.2z"/></svg></span>
+                        <span class="ad-rail-cell"><svg class="i" viewBox="0 0 16 16"><path d="M2.5 4.8h11M2.5 11.2h11"/><circle cx="6" cy="4.8" r="1.7"/><circle cx="10.5" cy="11.2" r="1.7"/></svg></span>
+                    </span>
+                </aside>
+
+                <div class="ad-work">
+                    <div class="ad-head">
+                        <span class="ad-icon ad-back"><svg class="i" viewBox="0 0 16 16"><path d="M13 8H3.2M7.4 3.6 3 8l4.4 4.4"/></svg></span>
+                        <div class="ad-head-main">
+                            <span class="ad-title">Move the review</span>
+                            <span class="ad-chip"><span class="mark">W</span>wren<svg class="i sm" viewBox="0 0 16 16"><path d="m6.2 3.8 4.2 4.2-4.2 4.2"/></svg></span>
+                        </div>
+                        <div class="ad-acts">
+                            <span class="ad-seg"><span class="on">Chat</span><span>Web</span></span>
+                            <span class="ad-icon"><svg class="i" viewBox="0 0 16 16"><path d="M8 3.4v9.2M3.4 8h9.2"/></svg></span>
+                            <span class="ad-icon"><svg class="i" viewBox="0 0 16 16"><circle cx="3.5" cy="8" r=".8"/><circle cx="8" cy="8" r=".8"/><circle cx="12.5" cy="8" r=".8"/></svg></span>
+                        </div>
+                    </div>
+
+                    <div class="ad-thread">
+                        <div class="ad-thread-in" data-thread>
+                            <article class="msg human">
+                                <div class="msg-body">What does Wednesday look like?</div>
+                                <footer class="msg-foot"><span class="msg-time">09:41</span></footer>
+                            </article>
+                            <div class="turn">
+                                <article class="msg">
+                                    <header class="msg-who"><span>wren</span><span class="msg-time">09:41</span></header>
+                                    <div class="msg-body">Wednesday has the design review with Jonas from 11:00 to 12:00, and lunch with Ines at 13:00.</div>
+                                </article>
+                                <div class="genmeta">Qwen3-32B</div>
+                            </div>
+
+                            <article class="msg human" data-step="ask">
+                                <div class="msg-body">Jonas can’t do Wednesday. Move the review to Thursday afternoon.</div>
+                                <footer class="msg-foot"><span class="msg-time">09:44</span></footer>
+                            </article>
+
+                            <div class="turn">
+                                <div class="call" data-step="call">
+                                    <span class="call-name">list_events</span>
+                                    <span class="call-args">from: 2026-10-07T00:00, to: 2026-10-08T00:00</span>
+                                    <span class="call-dot"></span>
+                                    <svg class="i sm" viewBox="0 0 16 16"><path d="m6.2 3.8 4.2 4.2-4.2 4.2"/></svg>
+                                </div>
+                                <div class="call" data-step="call">
+                                    <span class="call-name">list_events</span>
+                                    <span class="call-args">from: 2026-10-08T12:00, to: 2026-10-08T19:00</span>
+                                    <span class="call-dot"></span>
+                                    <svg class="i sm" viewBox="0 0 16 16"><path d="m6.2 3.8 4.2 4.2-4.2 4.2"/></svg>
+                                </div>
+                                <div class="typing" data-step="typing" hidden><i></i><i></i><i></i><span>wren is responding</span></div>
+                                <article class="msg" data-step="say">
+                                    <header class="msg-who"><span>wren</span><span class="msg-time">09:44</span></header>
+                                    <div class="msg-body" data-stream>You’re free on Thursday from 15:00 to 17:00. Moving the review to 15:00.</div>
+                                </article>
+
+                                <div class="gate" data-step="gate" hidden>
+                                    <div class="gh"><b>Awaiting approval</b><span class="mono">move_event</span><span class="countdown" data-countdown>5:00</span></div>
+                                    <div class="gb">
+                                        <p class="gate-sum">This call changes something outside, so the turn stopped here. Below are the exact arguments the tool will run with.</p>
+                                        <div class="gate-act">
+                                            <span class="tick"><svg viewBox="0 0 16 16"><path d="m3.6 8.4 3 3 5.8-6.9"/></svg></span>
+                                            <div class="gate-act-body">
+                                                <span class="mono">move_event</span>
+                                                <dl class="facts">
+                                                    <dt>id</dt><dd>evt_4q1v8k2m</dd>
+                                                    <dt>start</dt><dd>2026-10-08T15:00</dd>
+                                                    <dt>end</dt><dd>2026-10-08T16:00</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div class="disclose">Show the full call</div>
+                                        <div class="gate-btns">
+                                            <span class="btn primary" data-allow>Allow</span>
+                                            <span class="btn danger">Deny</span>
+                                            <span class="gate-hint">Allow <kbd>⌘⏎</kbd></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="gate resolved" data-step="allowed">
+                                    <div class="gh"><b>Allowed</b><span class="mono">move_event</span></div>
+                                    <div class="gb">
+                                        <p class="gate-sum">Everything below went ahead with these arguments.</p>
+                                        <p class="verdict"><span class="mono">move_event</span><span>allowed</span></p>
+                                        <div class="disclose">Show the full call</div>
+                                    </div>
+                                </div>
+
+                                <article class="msg" data-step="say">
+                                    <div class="msg-body" data-stream>Done. The design review is on Thursday, 8&nbsp;October, from 15:00 to 16:00.</div>
+                                </article>
+                                <div class="genmeta" data-step="meta">Qwen3-32B</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ad-dock">
+                        <div class="composer">
+                            <div class="composer-text"><span class="typed" data-typed></span><span class="caret"></span><span class="ph" data-placeholder>Message wren</span></div>
+                            <div class="composer-bar">
+                                <svg class="i" viewBox="0 0 16 16"><path d="M2.6 11.3 6 8l1.9 1.8 2.5-2.7 3 3.1"/><rect x="2.2" y="3.2" width="11.6" height="9.6" rx="1.8"/><circle cx="5.5" cy="6.1" r="1.05"/></svg>
+                                <span class="composer-hint">Enter sends · Shift+Enter new line · / commands</span>
+                                <span class="btn send" data-send><svg class="i" viewBox="0 0 16 16"><path d="M2.6 8 13.4 3.2 9.2 13.4 7.5 9.1z"/></svg>Send</span>
+                                <span class="btn" data-busy hidden><svg class="i" viewBox="0 0 16 16"><path d="M2.2 9.6h3l1 2h3.6l1-2h3M2.2 9.6 4 3.6a1.2 1.2 0 0 1 1.15-.85h5.7A1.2 1.2 0 0 1 12 3.6l1.8 6v2.4a1.2 1.2 0 0 1-1.2 1.2H3.4a1.2 1.2 0 0 1-1.2-1.2z"/></svg>Queue</span>
+                                <span class="btn danger" data-busy hidden><svg class="i" viewBox="0 0 16 16"><rect x="4.6" y="4.6" width="6.8" height="6.8" rx="1.2"/></svg>Stop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ol class="sr-only">
+                <li>You, earlier: What does Wednesday look like?</li>
+                <li>wren: Wednesday has the design review with Jonas from 11:00 to 12:00, and lunch with Ines at 13:00.</li>
+                <li>You: Jonas can’t do Wednesday. Move the review to Thursday afternoon.</li>
+                <li>wren checks the calendar twice, with list_events: Wednesday, to find the review, then Thursday afternoon.</li>
+                <li>wren: You’re free on Thursday from 15:00 to 17:00. Moving the review to 15:00.</li>
+                <li>The app shows an approval card for move_event with its exact arguments: id evt_4q1v8k2m, start 2026-10-08T15:00, end 2026-10-08T16:00. You press Allow.</li>
+                <li>wren: Done. The design review is on Thursday, 8 October, from 15:00 to 16:00.</li>
+            </ol>
+            <figcaption>The app’s chat with wren, rebuilt in HTML for this page. wren, loom and scout are example agents: each is a folder of TypeScript you write.</figcaption>
+        </figure>
+    </section>
+
+    <section class="sec wrap" aria-labelledby="for-title">
+        <div class="row" data-reveal>
+            <div class="copy">
+                <h2 class="ask" id="for-title">What for?</h2>
+                <h3>It asks before it changes things.</h3>
+                <p>Ask wren to move a meeting. It checks your Thursday, finds a free hour, and the move waits for your Allow, at your desk or on your phone.</p>
+            </div>
+            <div class="shot ui" role="img" aria-label="The app’s Home. Needs you, 2: Move the review, wren, move_event, 4:57 left; Swim on Saturday, wren, ask_scout, 4:58 left. The Agents tab carries a badge of 2.">
+                <div class="v-home">
+                    <div class="v-needs">
+                        <span class="v-h">Needs you<span class="count warn">2</span></span>
+                        <span class="v-need"><span class="v-need-title">Move the review</span><span class="countdown">4:57</span><span class="v-need-sub">wren · move_event</span></span>
+                        <span class="v-need"><span class="v-need-title">Swim on Saturday</span><span class="countdown">4:58</span><span class="v-need-sub">wren · ask_scout</span></span>
+                    </div>
+                    <div class="v-agents">
+                        <div class="ad-agent-row"><span class="mark">L</span><span class="ad-agent-name">loom</span><span class="ad-icon sm"><svg class="i sm" viewBox="0 0 16 16"><path d="M8 3.4v9.2M3.4 8h9.2"/></svg></span><span class="ad-icon sm ad-fold"><svg class="i sm" viewBox="0 0 16 16"><path d="m6.2 3.8 4.2 4.2-4.2 4.2"/></svg></span></div>
+                        <ul class="ad-chats">
+                            <li><span>Who has the car on Friday</span><time>Wed</time></li>
+                            <li><span>Plumber on Tuesday</span><time>Sun</time></li>
+                        </ul>
+                    </div>
+                    <div class="ad-bar">
+                        <span class="ad-cell on"><span class="v-badge"><svg class="i" viewBox="0 0 16 16"><path d="M2.6 7.6c0-2.76 2.42-5 5.4-5s5.4 2.24 5.4 5-2.42 5-5.4 5c-.65 0-1.28-.1-1.86-.3L3.1 13.4l1-2.3A4.85 4.85 0 0 1 2.6 7.6z"/></svg><span class="count warn">2</span></span>Agents</span>
+                        <span class="ad-cell"><svg class="i" viewBox="0 0 16 16"><path d="M2.2 9.6h3l1 2h3.6l1-2h3M2.2 9.6 4 3.6a1.2 1.2 0 0 1 1.15-.85h5.7A1.2 1.2 0 0 1 12 3.6l1.8 6v2.4a1.2 1.2 0 0 1-1.2 1.2H3.4a1.2 1.2 0 0 1-1.2-1.2z"/></svg>Inbox</span>
+                        <span class="ad-cell"><svg class="i" viewBox="0 0 16 16"><path d="M2.5 4.8h11M2.5 11.2h11"/><circle cx="6" cy="4.8" r="1.7"/><circle cx="10.5" cy="11.2" r="1.7"/></svg>Settings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row flip" data-reveal>
+            <div class="copy">
+                <h3>Agents ask each other.</h3>
+                <p>wren can hand a question to scout and get a short report back. The question goes out, and the report comes in, only when you allow it.</p>
+            </div>
+            <div class="shot ui" role="img" aria-label="wren: I’ll ask scout when the pool is open. An approval card for ask_scout, with the task: When is the Riverside pool open this Saturday? Allow or Deny.">
+                <div class="v-head"><span class="ad-title">Swim on Saturday</span><span class="ad-chip"><span class="mark">W</span>wren</span></div>
+                <div class="v-thread">
+                    <article class="msg">
+                        <div class="msg-body">I’ll ask scout when the pool is open.</div>
+                    </article>
+                    <div class="gate">
+                        <div class="gh"><b>Awaiting approval</b><span class="mono">ask_scout</span><span class="countdown">4:58</span></div>
+                        <div class="gb">
+                            <dl class="facts"><dt>task</dt><dd class="v-task">When is the Riverside pool open this Saturday?</dd></dl>
+                            <div class="gate-btns"><span class="btn primary">Allow</span><span class="btn danger">Deny</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" data-reveal>
+            <div class="copy">
+                <h3>Each one can bring its own screen.</h3>
+                <p>An agent can ship a small web page of its own. In the macOS desktop app it opens from the agent’s chat, one switch away.</p>
+            </div>
+            <div class="shot ui" role="img" aria-label="wren’s own page, open under Web in its chat: the week of 5 October, Monday to Friday, two events a day, with the design review now on Thursday at 15:00.">
+                <div class="v-head web"><span class="ad-title">Week of 5 October</span><span class="ad-chip"><span class="mark">W</span>wren</span><span class="ad-seg"><span>Chat</span><span class="on">Web</span></span></div>
+                <div class="v-week">
+                    <div><b>Mon 5</b><span><time>08:30</time>Dentist</span><span><time>18:00</time>Football with Leo</span></div>
+                    <div><b>Tue 6</b><span><time>08:00</time>Plumber</span><span><time>19:00</time>Choir</span></div>
+                    <div><b>Wed 7</b><span><time>13:00</time>Lunch with Ines</span><span><time>17:30</time>Haircut</span></div>
+                    <div><b>Thu 8</b><span><time>09:30</time>Team sync</span><span class="new"><time>15:00</time>Design review</span></div>
+                    <div><b>Fri 9</b><span><time>12:00</time>Call with Jonas</span><span><time>19:00</time>Cinema</span></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="sec wrap" aria-labelledby="why-title">
+        <div class="row" data-reveal>
+            <div class="copy">
+                <h2 class="ask" id="why-title">Why mimi-os?</h2>
+                <h3>Agents are code you own.</h3>
+                <p>Each agent is a folder in your git repo: a persona in markdown, tools as plain TypeScript functions, and tests you run like any other code.</p>
+                <p class="also"><b>Easy to run.</b> One command sets up each machine, and one link pairs the app.</p>
+            </div>
+            <div class="shot ui" role="img" aria-label="A folder view of a repo named my-agents with the folders loom, scout and wren. wren holds agent.json, prompt.md, index.ts and the folders src, app and test. src holds calendar.ts, contacts.ts and travel.ts.">
+                <div class="v-cols">
+                    <div><span class="v-col-h">my-agents</span><ul><li>loom/</li><li>scout/</li><li class="on">wren/</li></ul></div>
+                    <div><span class="v-col-h">wren</span><ul><li>agent.json</li><li>prompt.md</li><li>index.ts</li><li class="on">src/</li><li>app/</li><li>test/</li></ul></div>
+                    <div><span class="v-col-h">src</span><ul><li>calendar.ts</li><li>contacts.ts</li><li>travel.ts</li></ul></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row flip" data-reveal>
+            <div class="copy">
+                <h3>Under your control.</h3>
+                <p>Tools marked as writes wait for your Allow. Each model has a price and a daily limit, and past the limit a fallback model runs or the call is refused.</p>
+                <ul class="also">
+                    <li><b>Memory you can read:</b> plain lines, yours to edit.</li>
+                    <li><b>A cloud model</b> sees only what you send it.</li>
+                </ul>
+            </div>
+            <div class="shot ui" role="img" aria-label="Limits and prices in the app’s settings. Qwen3-32B on vllm: today 412,880 of 2,000,000 tokens. DeepSeek-V3.1 on openrouter: input 0.27 and output 1.10 dollars per million tokens, today 0.38 of 1.00 dollar.">
+                <div class="v-limits">
+                    <div class="limit-row">
+                        <div class="limit-head"><span class="limit-name"><b>Qwen3-32B</b><span class="mono">vllm</span></span><span class="limit-use">Today 412,880 of 2,000,000 tokens</span></div>
+                        <div class="limit-track"><span class="v-fill tokens"></span></div>
+                    </div>
+                    <div class="limit-row">
+                        <div class="limit-head"><span class="limit-name"><b>DeepSeek-V3.1</b><span class="mono">openrouter</span></span><span class="limit-use">Today $0.38 of $1.00</span></div>
+                        <div class="limit-track"><span class="v-fill usd"></span></div>
+                        <div class="limit-fields">
+                            <span class="v-field">Input, $ per 1M<span class="v-input">0.27</span></span>
+                            <span class="v-field">Output, $ per 1M<span class="v-input">1.10</span></span>
+                            <span class="v-field">Daily limit<span class="v-daily"><span class="v-input">1.00</span><span class="ad-seg"><span>tokens</span><span class="on">$</span></span></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec wrap" aria-labelledby="how-title">
+        <div class="row hang" data-reveal>
+            <div class="copy">
+                <h2 class="ask" id="how-title">How does it work?</h2>
+                <h3>The gateway stays at home. The app reaches it from anywhere.</h3>
+            </div>
+            <div class="sealed">
+                <p>Only the app and the gateway can read a message.</p>
+            </div>
+        </div>
+
+        <div class="fit" aria-hidden="true" data-fit data-reveal>
+            <div class="node">
+                <div class="node-head"><span class="node-name">app</span><span class="node-where">your desktop or phone</span></div>
+                <dl class="node-facts">
+                    <dt>runs on</dt><dd>macOS, Windows, Android</dd>
+                    <dt>keeps</dt><dd>its own key, the gateway’s key</dd>
+                </dl>
+                <div class="node-view">
+                    <span class="view-label">plain text</span>
+                    <p class="view-ask" data-view="app-ask">Move the review to Thursday.</p>
+                    <p class="view-answer" data-view="app-answer">Moved to Thursday, 15:00.</p>
+                </div>
+            </div>
+            <div class="net">
+                <div class="net-head">
+                    <span class="node-name">Tailscale</span><span class="node-where">or your own network</span>
+                    <ul class="seal">
+                        <li><span class="mono">Noise IK</span> handshake</li>
+                        <li><span class="mono">ML-KEM-768</span> key exchange</li>
+                        <li>gateway key pinned at pairing</li>
+                    </ul>
+                </div>
+                <div class="wire" data-wire><span class="packet"><span></span></span></div>
+                <div class="net-view">
+                    <span class="view-label">ciphertext</span>
+                    <p class="view-cipher" data-view="net">e3a9 4f0c b177 20dd 9c41 a0f2 5be8 13c7 d26a 7f90 0b3e c58d</p>
+                </div>
+            </div>
+            <div class="node">
+                <div class="node-head"><span class="node-name">gateway</span><span class="node-where">your machine at home</span></div>
+                <dl class="node-facts">
+                    <dt>models</dt><dd>vLLM, llama.cpp, OpenRouter</dd>
+                    <dt>agents</dt><dd>wren, loom, scout</dd>
+                </dl>
+                <div class="node-view">
+                    <span class="view-label">plain text</span>
+                    <p class="view-ask" data-view="gw-ask">Move the review to Thursday.</p>
+                    <p class="view-answer" data-view="gw-answer">Moved to Thursday, 15:00.</p>
+                </div>
+            </div>
+        </div>
+        <p class="sr-only">A diagram: the app on your desktop or phone, the gateway on your machine at home with its models and agents,
+            and Tailscale or your own network between them. The channel is end-to-end encrypted, with a Noise IK handshake, an ML-KEM-768 key exchange
+            and the gateway’s key pinned at pairing. A message is plain text in the app and in the gateway, and ciphertext on the network in between.</p>
+
+        <div class="row hang start" data-reveal>
+            <div class="copy">
+                <img class="mascot" src="assets/mimi-mascot.png" width="112" height="112" alt="">
+                <h3>Start in three steps.</h3>
+            </div>
+            <ol class="steps">
+                <li><a href="wiki/#/launch">Set up the gateway</a><span>One command on the machine that will run it.</span></li>
+                <li><a href="wiki/#/app">Pair the app</a><span>Build it for a Mac, a Windows PC or an Android phone, then open one link.</span></li>
+                <li><a href="wiki/#/sdk">Add an agent</a><span>Write your own in TypeScript, or bring one someone shared.</span></li>
+            </ol>
+            <a class="cta primary" href="wiki/#/launch">Get started</a>
+        </div>
+    </section>
+</main>
+
+<footer class="foot wrap">
+    <div class="foot-row">
+        <span class="brand"><img src="assets/mimi-mascot.png" width="22" height="22" alt=""><span class="wm">mimi-os</span></span>
+        <nav class="top-links" aria-label="Footer">
+            <a href="wiki/">Wiki</a>
+            <a href="https://github.com/Mimi-agent-os">GitHub</a>
+        </nav>
+    </div>
+    <p>This site sets no cookies and loads only fonts from Google Fonts; the wiki also reads its pages from GitHub. mimi-os is licensed under Apache-2.0.</p>
+</footer>
+</body>
+</html>

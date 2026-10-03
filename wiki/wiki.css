@@ -1,0 +1,175 @@
+/* the mimi app's visual system (app/src/styles.css): dark by default, light when the system asks for it */
+
+:root{
+  color-scheme:dark;
+  --bg:#0c0c0f; --panel:#111115; --panel-2:#18181d; --panel-3:#202027;
+  --line:#232329; --line-2:#303038;
+  --ink:#ececef; --ink-2:#a5a5b0; --ink-3:#80808b;
+  --accent:oklch(.9 .075 163);
+  --hover:color-mix(in oklab,var(--ink) 5%,transparent);
+  --sel:color-mix(in oklab,var(--ink) 9%,transparent);
+  --focus:var(--accent);
+
+  --sans:'Public Sans',ui-sans-serif,system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --brand:Quicksand,var(--sans);
+  --f-xs:400 11px/16px var(--sans);
+  --f-sm:400 12.5px/18px var(--sans);
+  --f-md:400 13.5px/20px var(--sans);
+  --f-body:400 15px/25px var(--sans);
+  --f-code:400 12.5px/19px var(--mono);
+  --track-tight:-.012em;
+
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+  --r0:4px; --r1:6px;
+  --row-h:32px; --head-h:52px; --side-w:264px;
+}
+@media (prefers-color-scheme:light){:root{
+  color-scheme:light;
+  --bg:#f3f3f5; --panel:#fbfbfc; --panel-2:#f0f0f3; --panel-3:#e7e7ec;
+  --line:#e3e3e9; --line-2:#d0d0d8;
+  --ink:#17171c; --ink-2:#50505b; --ink-3:#6b6b76;
+  --accent:oklch(.52 .1 163);
+  --hover:color-mix(in oklab,var(--ink) 4%,transparent);
+  --sel:color-mix(in oklab,var(--ink) 7%,transparent);
+}}
+@media (pointer:coarse){:root{
+  --row-h:44px; --head-h:56px;
+  --f-sm:400 13.5px/20px var(--sans); --f-md:400 15px/22px var(--sans); --f-body:400 16px/26px var(--sans);
+}}
+
+/* base */
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--panel);color:var(--ink);font:var(--f-md);-webkit-font-smoothing:antialiased}
+:where(b,strong,h1,h2,h3,h4,h5,h6,th){font-weight:600}
+a{color:inherit}
+::selection{background:color-mix(in oklab,var(--accent) 30%,transparent);color:inherit}
+*{scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wm{font-family:var(--brand);font-weight:600;letter-spacing:-.01em}
+.label{margin:0;font:var(--f-xs);font-weight:500;color:var(--ink-3)}
+
+/* the shell: the repos on the ground, the page on the panel beside them */
+
+.shell{display:grid;grid-template-columns:var(--side-w) minmax(0,1fr);min-height:100dvh}
+.side{position:sticky;top:0;display:flex;flex-direction:column;height:100dvh;background:var(--bg);border-right:1px solid var(--line)}
+.top{display:flex;align-items:center;gap:var(--s3);flex:none;height:var(--head-h);padding:0 var(--s4)}
+.brand{display:flex;align-items:center;gap:var(--s2);min-width:0;text-decoration:none}
+.brand img{display:block;flex:none;object-fit:contain}
+.brand .wm{font-size:17px;line-height:1}
+.brand-sub{font:var(--f-md);color:var(--ink-3)}
+.menu-btn{display:none}
+.skip{position:absolute;top:var(--s2);left:var(--s2);z-index:40;padding:var(--s1) var(--s2);background:var(--bg);color:var(--ink)}
+.skip:not(:focus){clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+
+.nav{display:flex;flex-direction:column;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:var(--s2) var(--s2) 0}
+.nav .label{padding:var(--s2) 10px var(--s1)}
+.nav ul{margin:0;padding:0;list-style:none}
+.nav ul a{display:flex;align-items:center;min-height:var(--row-h);padding:5px 10px;border-radius:var(--r1);color:var(--ink-2);text-decoration:none;overflow-wrap:anywhere}
+.nav ul a:hover{background:var(--hover);color:var(--ink)}
+.nav ul a[aria-current=page]{background:var(--sel);color:var(--ink)}
+.nav .open>a{color:var(--ink);font-weight:500}
+.nav .open ul{padding:2px 0 var(--s2)}
+.nav .open ul a{min-height:calc(var(--row-h) - 4px);padding:4px 10px 4px 22px;font:var(--f-sm)}
+.nav .open ul a.nested{padding-left:34px}
+.nav .dir{padding:var(--s2) 10px 2px 22px;font:400 11px/16px var(--mono);color:var(--ink-3)}
+.nav-foot{margin:auto 0 0;padding:var(--s5) 10px var(--s4);font:var(--f-xs);color:var(--ink-3)}
+.nav-foot a{color:var(--ink-2);text-underline-offset:2px}
+
+.main{min-width:0;padding:40px 56px 96px}
+.main:focus-visible{outline:none}
+.home,.page{max-width:72ch;font:var(--f-body)}
+
+/* home */
+
+.home-head{display:flex;align-items:center;gap:var(--s4);margin:0 0 var(--s5) -6px}
+.home-head img{display:block;width:88px;height:88px}
+.home-head h1{margin:0;font-size:44px;line-height:1;letter-spacing:-.02em}
+.lede{margin:0 0 var(--s4);font:400 17px/28px var(--sans);color:var(--ink-2);text-wrap:pretty}
+.lede a{color:var(--ink);text-decoration-color:color-mix(in oklab,var(--accent) 55%,transparent);text-underline-offset:3px}
+.home .label{margin-top:40px;padding-bottom:var(--s2)}
+.repo-list{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.repo-list li{display:grid;grid-template-columns:9ch minmax(0,1fr);gap:var(--s4);align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+.repo-list a{font-weight:600;text-decoration:none}
+.repo-list a:hover{text-decoration:underline;text-underline-offset:3px}
+.repo-list span{color:var(--ink-2)}
+.repo-list code{padding:1px 5px;border-radius:var(--r0);background:var(--panel-3);color:var(--ink);font-family:var(--mono);font-size:.86em}
+
+/* a page: where it comes from, then the markdown */
+
+.meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--s1) var(--s5);margin-bottom:var(--s6);padding-bottom:var(--s3);border-bottom:1px solid var(--line);font:var(--f-sm);color:var(--ink-3)}
+.crumbs{min-width:0;font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+.crumbs a{color:var(--ink-2);text-decoration:none}
+.meta-links{display:flex;flex-wrap:wrap;gap:var(--s4)}
+.meta-links a{color:var(--ink-2);text-decoration:none}
+:is(.crumbs,.meta-links) a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.note{margin:calc(-1 * var(--s4)) 0 var(--s5);font:var(--f-sm);color:var(--ink-3)}
+.loading{color:var(--ink-3);animation:wait 0s 300ms both}
+@keyframes wait{from{visibility:hidden}}
+.failed{color:var(--ink-2)}
+.failed a{color:var(--ink);text-underline-offset:3px}
+.retry{padding:0;border:0;background:none;color:var(--ink);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+.md{overflow-wrap:break-word}
+.md>:first-child{margin-top:0}
+.md :is(h1,h2,h3,h4,h5,h6){scroll-margin-top:var(--s5);text-wrap:pretty}
+.md h1{margin:0 0 var(--s5);font:600 28px/36px var(--sans);letter-spacing:-.02em}
+.md h2{margin:48px 0 var(--s3);font:600 20px/28px var(--sans);letter-spacing:var(--track-tight)}
+.md h3{margin:32px 0 var(--s2);font:600 16.5px/24px var(--sans)}
+.md :is(h4,h5,h6){margin:24px 0 var(--s2);font:600 15px/22px var(--sans);color:var(--ink-2)}
+.md :is(p,ul,ol,pre,blockquote,details,.scroll){margin:0 0 var(--s4)}
+.md :is(ul,ol){padding-left:1.4em}
+.md li{margin:var(--s1) 0}
+.md li>:is(ul,ol,p){margin:var(--s1) 0 0}
+.md li::marker{color:var(--ink-3)}
+.md a{text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:color-mix(in oklab,var(--accent) 55%,transparent)}
+.md a:hover{text-decoration-color:var(--accent)}
+.md .anchor{margin-left:var(--s2);color:var(--ink-3);font-weight:400;text-decoration:none;opacity:0}
+.md :is(h1,h2,h3,h4,h5,h6):hover .anchor,.md .anchor:focus-visible{opacity:1}
+.md code{padding:1px 5px;border-radius:var(--r0);background:var(--panel-3);font-family:var(--mono);font-size:.86em;overflow-wrap:anywhere}
+.md pre{padding:var(--s3) var(--s4);overflow-x:auto;border:1px solid var(--line);border-radius:var(--r1);background:var(--panel-2);font:var(--f-code)}
+.md pre code{padding:0;background:none;font:inherit;overflow-wrap:normal}
+.md .scroll{overflow-x:auto;margin-inline:-4px;padding-inline:4px}
+.md table{border-collapse:collapse;font:var(--f-md)}
+.md :is(th,td){min-width:9ch;padding:var(--s2) var(--s4) var(--s2) 0;border-bottom:1px solid var(--line);vertical-align:top}
+.md :is(th,td):not([align]){text-align:left}
+.md :is(th,td):last-child{padding-right:0}
+.md th{color:var(--ink-2);border-bottom-color:var(--line-2)}
+.md :is(th,td) code{overflow-wrap:normal}
+.md blockquote{padding-left:var(--s4);color:var(--ink-2)}
+.md hr{height:0;margin:var(--s6) 0;border:0;border-top:1px solid var(--line)}
+.md img{max-width:100%;height:auto}
+.md summary{color:var(--ink-2);cursor:pointer}
+.md kbd{padding:0 5px;border:1px solid var(--line-2);border-radius:var(--r0);font:500 .8em/1.6 var(--mono)}
+
+/* a desktop: a wide table or code block takes the free space beside the column, only as far as it needs */
+
+@media (min-width:901px){
+  .main{container-type:inline-size}
+  .md :is(.scroll,pre){width:fit-content;min-width:100%;max-width:100cqw}
+}
+
+/* a phone: the repos become a menu under the top bar, with a 16px gutter */
+
+@media (max-width:900px){
+  .shell{display:block}
+  .side{z-index:30;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .top{padding:0 max(var(--s4),env(safe-area-inset-right)) 0 max(var(--s4),env(safe-area-inset-left))}
+  .menu-btn{display:inline-flex;align-items:center;height:var(--row-h);margin-left:auto;padding:0 12px;border:1px solid var(--line-2);border-radius:var(--r1);background:transparent;color:var(--ink);font:var(--f-md);font-weight:500;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .nav{display:none}
+  html[data-menu] .nav{position:fixed;inset:calc(var(--head-h) + 1px) 0 0;display:flex;padding:var(--s2) var(--s2) env(safe-area-inset-bottom);background:var(--bg)}
+  html[data-menu],html[data-menu] body{overflow:hidden}
+  .main{padding:var(--s5) max(var(--s4),env(safe-area-inset-right)) 72px max(var(--s4),env(safe-area-inset-left))}
+  .md :is(h1,h2,h3,h4,h5,h6){scroll-margin-top:calc(var(--head-h) + var(--s4))}
+  .md h1{font-size:25px;line-height:32px}
+  .home-head img{width:72px;height:72px}
+  .home-head h1{font-size:38px}
+}
+@media (max-width:540px){
+  .repo-list li{grid-template-columns:minmax(0,1fr);gap:2px}
+  /* a phone cannot fit a wide table: each column gets about 16ch to share out, and the table scrolls inside */
+  .md table{width:max(100%,calc(var(--cols) * 16ch))}
+}

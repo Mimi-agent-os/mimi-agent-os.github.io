@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src https://raw.githubusercontent.com https://api.github.com; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0c0c0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f3f5" media="(prefers-color-scheme: light)">
+<meta name="description" content="The mimi-os wiki: the README and docs of every core repo, read live from GitHub.">
+<title>mimi-os wiki</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&text=mimi-os&display=swap">
+<link rel="stylesheet" href="wiki.css">
+<script src="vendor/purify.min.js" defer></script>
+<script type="module" src="wiki.js"></script>
+</head>
+<body>
+<a class="skip" href="#wiki-main">Skip to content</a>
+<div class="shell">
+    <aside class="side">
+        <header class="top">
+            <a class="brand" href="#/">
+                <img src="../assets/mimi-mascot.png" width="22" height="22" alt="">
+                <span class="wm">mimi-os</span>
+                <span class="brand-sub">wiki</span>
+            </a>
+            <button class="menu-btn" id="wiki-menu" type="button" aria-expanded="false" aria-controls="wiki-nav">Menu</button>
+        </header>
+        <nav class="nav" id="wiki-nav" aria-label="Repositories"></nav>
+    </aside>
+
+    <main class="main" id="wiki-main" tabindex="-1">
+        <section class="home" id="wiki-home">
+            <header class="home-head">
+                <img src="../assets/mimi-mascot.png" width="88" height="88" alt="The mimi mascot">
+                <h1 class="wm">mimi-os</h1>
+            </header>
+            <p class="lede">mimi-os is a personal agent runtime. The gateway daemon holds the models and the secure
+                channel; agents built on the SDK connect to it, and the app pairs with it to talk to them and control them.
+                The <a href="../">front page</a> shows it at work.</p>
+            <p class="lede">Every part is its own repo under
+                <a href="https://github.com/Mimi-agent-os">Mimi-agent-os</a>. This wiki reads each one's README and
+                docs from GitHub as you open them, so it shows what is on main right now.</p>
+            <h2 class="label">Repositories</h2>
+            <ul class="repo-list" id="wiki-repos"></ul>
+        </section>
+
+        <section class="page" id="wiki-page" hidden></section>
+    </main>
+</div>
+</body>
+</html>
