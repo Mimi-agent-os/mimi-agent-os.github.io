@@ -99,6 +99,78 @@ a{color:inherit}
 .repo-list a:hover{text-decoration:underline;text-underline-offset:3px}
 .repo-list span{color:var(--ink-2)}
 .repo-list code{padding:1px 5px;border-radius:var(--r0);background:var(--panel-3);color:var(--ink);font-family:var(--mono);font-size:.86em}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* how it works: boxes and the wires between them; a column of boxes in a narrow space, a map in a wide one */
+
+.flow{margin:var(--s3) 0 0;container:flow/inline-size}
+.flow-map{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:var(--s3);
+  grid-template-areas:"app app" "paths paths" "gw gw" "models agents" ". svc"}
+.box{position:relative;min-width:0;padding:var(--s3);border:1px solid var(--line-2);border-radius:var(--r1);background:var(--panel-2);font:var(--f-sm);color:var(--ink-2)}
+.box p{margin:var(--s1) 0 0}
+.box-name{display:inline-block;font:500 13px/20px var(--mono);color:var(--ink)}
+a.box-name,.box a,.path a{text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:color-mix(in oklab,var(--accent) 55%,transparent)}
+:is(a.box-name,.box a,.path a):hover{text-decoration-color:var(--accent)}
+.box-where{display:block;color:var(--ink-3)}
+.nw{white-space:nowrap}
+.box-list{margin:var(--s1) 0 0;padding:0;list-style:none}
+.box-list li{display:inline}
+.box-list li:not(:last-child)::after{content:", "}
+.box-app{grid-area:app}
+.box-gw{grid-area:gw}
+.box-models{grid-area:models}
+.box-agents{grid-area:agents}
+.box-svc{grid-area:svc;border-style:dashed;background:none}
+.box-svc .box-name{color:var(--ink-2)}
+:is(.box-models,.box-agents,.box-svc){margin-top:var(--s5)}
+:is(.box-models,.box-agents,.box-svc)::before{content:"";position:absolute;left:50%;top:calc(-1 * var(--s5) - 1px);height:var(--s5);border-left:1px solid var(--ink-3)}
+
+.paths{grid-area:paths;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);column-gap:var(--s3)}
+.path{display:flex;gap:var(--s3);min-width:0;padding-left:var(--s4);font:var(--f-sm);color:var(--ink-2)}
+.path p{margin:0;padding:var(--s4) 0;min-width:0}
+.path a{color:var(--ink)}
+.path :is(.carries,.mono,.via){display:block}
+.mono{font-family:var(--mono);font-size:12px;color:var(--ink)}
+.via{color:var(--ink-3)}
+.line{position:relative;flex:none;width:0;border-left:1px solid var(--ink-3);color:var(--ink-3)}
+.path-channel .line{border-color:var(--accent);color:var(--accent)}
+.path-push .line{border-left-style:dashed}
+.line::before,.line::after{content:"";position:absolute;left:-4px;display:none;width:7px;height:7px;border:solid currentColor;border-width:1px 0 0 1px}
+.line::before{top:1px;transform:rotate(45deg)}
+.line::after{bottom:1px;transform:rotate(-135deg)}
+:is(.both,.to-app)::before,.both::after{display:block}
+
+@container flow (min-width:600px){
+  .flow-map{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.25fr);column-gap:0;
+    grid-template-areas:"app paths gw models" "app paths gw agents" ". . . svc"}
+  .box-list li{display:block}
+  .box-list li::after{display:none}
+  .paths{display:flex;flex-direction:column;justify-content:center;gap:var(--s4)}
+  .path{flex-direction:column;gap:6px;padding:0;text-align:center}
+  .path p{padding:0 var(--s3)}
+  .line{width:auto;height:0;border-left:0;border-top:1px solid var(--ink-3)}
+  .path-channel .line{border-color:var(--accent)}
+  .path-push .line{border-top-style:dashed}
+  .line::before,.line::after{top:-4px;bottom:auto}
+  .line::before{left:1px;transform:rotate(-45deg)}
+  .line::after{left:auto;right:1px;transform:rotate(135deg)}
+  :is(.box-models,.box-agents){margin:0 0 0 var(--s5)}
+  .box-agents{margin-top:var(--s3)}
+  .box-svc{margin-left:var(--s5)}
+  :is(.box-models,.box-agents)::before{left:calc(-1 * var(--s5) - 1px);top:50%;width:var(--s5);height:0;border-left:0;border-top:1px solid var(--ink-3)}
+}
+
+/* agents reach the gateway over the same encrypted channel as the app, so their wire is the channel's colour */
+.box-agents::before{border-color:var(--accent)}
+
+.walk{margin:var(--s5) 0 0;padding-left:1.4em;font:var(--f-md);color:var(--ink-2)}
+.walk li{margin:0 0 var(--s1);padding-left:var(--s1)}
+.walk li::marker{color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+.pros{margin:var(--s2) 0 0;padding:0;list-style:none;color:var(--ink-2)}
+.pros li{margin:0 0 var(--s2)}
+.pros b{color:var(--ink)}
+.pros a{color:var(--ink);text-decoration-color:color-mix(in oklab,var(--accent) 55%,transparent);text-underline-offset:3px}
 
 /* a page: where it comes from, then the markdown */
 

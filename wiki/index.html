@@ -43,12 +43,95 @@
                 <img src="../assets/mimi-mascot.png" width="88" height="88" alt="The mimi mascot">
                 <h1 class="wm">mimi-os</h1>
             </header>
-            <p class="lede">mimi-os is a personal agent runtime. The gateway daemon holds the models and the secure
-                channel; agents built on the SDK connect to it, and the app pairs with it to talk to them and control them.
+            <p class="lede">mimi-os is a personal agent runtime that runs on your own machine. A gateway holds the
+                models and runs the chats, each agent is a folder of TypeScript you write with the SDK, and the app on your
+                desktop or phone talks to them over an end-to-end encrypted channel.
                 The <a href="../">front page</a> shows it at work.</p>
             <p class="lede">Every part is its own repo under
                 <a href="https://github.com/Mimi-agent-os">Mimi-agent-os</a>. This wiki reads each one's README and
                 docs from GitHub as you open them, so it shows what is on main right now.</p>
+
+            <h2 class="label" id="how-title">How it works</h2>
+            <figure class="flow" aria-labelledby="how-title">
+                <p class="sr-only">A diagram. The app, on your desktop or phone, talks to the gateway on your machine
+                    over an end-to-end encrypted channel: a Noise IK handshake with ML-KEM-768, over Tailscale or your
+                    own network. Your messages and your Allow for each write travel on that channel. When the phone app is
+                    closed, the gateway sends it a push with no content through Firebase Cloud Messaging. The gateway
+                    calls the models (a local vLLM or llama.cpp server, or OpenRouter) and the agents' tools. Each agent
+                    connects to the gateway over its own encrypted channel of the same kind and calls its own
+                    services.</p>
+                <div class="flow-map">
+                    <div class="box box-app">
+                        <a class="box-name" href="#/app">app</a>
+                        <span class="box-where">desktop and phone</span>
+                        <p>macOS, Windows, Android</p>
+                        <p>chat, approve, set up models and limits</p>
+                    </div>
+                    <div class="paths">
+                        <div class="path path-channel">
+                            <span class="line both" aria-hidden="true"></span>
+                            <p><a href="#/protocol">encrypted channel</a>
+                                <span class="carries">messages and your Allow on each write</span>
+                                <span class="mono">Noise IK + <span class="nw">ML-KEM-768</span></span>
+                                <span class="via">over Tailscale or your network</span></p>
+                        </div>
+                        <div class="path path-push">
+                            <span class="line to-app" aria-hidden="true"></span>
+                            <p>phone push via Firebase, no content</p>
+                        </div>
+                    </div>
+                    <div class="box box-gw">
+                        <a class="box-name" href="#/gateway">gateway</a>
+                        <span class="box-where">your machine</span>
+                        <ul class="box-list">
+                            <li>models and keys</li>
+                            <li>chat turns</li>
+                            <li>approvals</li>
+                            <li>prices and daily limits</li>
+                            <li>push</li>
+                        </ul>
+                    </div>
+                    <div class="box box-models">
+                        <a class="box-name" href="#/gateway#models-and-limits">models</a>
+                        <p>local vLLM or llama.cpp, or OpenRouter</p>
+                    </div>
+                    <div class="box box-agents">
+                        <a class="box-name" href="#/sdk">agents</a>
+                        <span class="box-where">TypeScript folders on the SDK</span>
+                        <p>tools, <a href="#/plugins">memory and routines</a>, an optional mini-app</p>
+                    </div>
+                    <div class="box box-svc">
+                        <span class="box-name">services</span>
+                        <p>a calendar, contacts, any API</p>
+                    </div>
+                </div>
+                <figcaption>
+                    <ol class="walk">
+                        <li>You send a message from the app. On the network it is ciphertext only the gateway can read.</li>
+                        <li>The gateway runs the turn on the agent's model and calls the agent's tools over the agent's own encrypted channel.</li>
+                        <li>A tool that writes, like adding a calendar event, waits until you tap Allow. If the app on your phone is closed, a push with no content tells you to open it.</li>
+                        <li>The tool does its work in the agent's service, and the reply comes back to the app. The agent keeps the chat in its own data folder.</li>
+                    </ol>
+                </figcaption>
+            </figure>
+
+            <h2 class="label">Why mimi-os</h2>
+            <ul class="pros">
+                <li><b>Runs on your hardware.</b> The gateway keeps your keys, settings and limits on a machine you own
+                    and can use models you host yourself. Each agent keeps its chats in its own data folder.</li>
+                <li><b>End-to-end encrypted.</b> A Noise IK handshake with ML-KEM-768, and the app pins the gateway's key
+                    when it pairs, so on the network a message is ciphertext only the gateway can read.</li>
+                <li><b>Agents are code you own.</b> Each agent is a folder of TypeScript you can read, version and test,
+                    in process or against a real gateway with <a href="#/devkit">devkit</a>.</li>
+                <li><b>Every write waits for you.</b> A tool the agent marks as a write runs only after you tap Allow in
+                    the app, which shows its exact arguments.</li>
+                <li><b>Any model, local or cloud.</b> A local vLLM or llama.cpp server, or OpenRouter, each with its own
+                    price and daily limit; past a limit, a call moves to the agent's fallback model, if it has one.</li>
+                <li><b>One app, desktop and phone.</b> The same app runs on macOS, Windows and Android, and a push with no
+                    content tells you when something needs you.</li>
+                <li><b>Open source.</b> Every repo is licensed under Apache-2.0, so you can read and change any part.</li>
+            </ul>
+
             <h2 class="label">Repositories</h2>
             <ul class="repo-list" id="wiki-repos"></ul>
         </section>
